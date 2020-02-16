@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueCDN</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="testapp">
+        <button-counter></button-counter>
+    </div>
+
+    <!-- Component List -->
+    <script src="components/button-counter.component.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#testapp'
+        });
+    </script>
+</body>
+</html>
