@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1: Page Layout Rendering using Component</title>
+    <script src="../assets/vue.js"></script>
+</head>
+<body>
+
+    <div id="main-app">
+        <ex-header></ex-header>
+        <ex-navigation></ex-navigation>
+        <ex-main></ex-main>
+        <ex-table></ex-table>
+        <ex-footer></ex-footer>
+    </div>
+
+    <!-- Component Lists -->
+    <script src="../components/partials/ExHeader.js"></script>
+    <script src="../components/partials/ExNavigation.js"></script>
+    <script src="../components/partials/ExMain.js"></script>
+    <script src="../components/partials/ExTable.js"></script>
+    <script src="../components/partials/ExFooter.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#main-app'
+        })
+    </script>
+</body>
+</html>
