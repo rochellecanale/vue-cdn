@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon: Hashcat</title>
+    <script src="../../assets/vue.js"></script>
+</head>
+<body>
+    
+    <div id="hash-app">
+        <input type="text" placeholder="Enter Words" v-model="custom_word" />
+        <button type="button" @click="encodeMessage">Proceed</button>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#hash-app',
+            data: {
+                cipherText: undefined,
+                iv: undefined
+            },
+            methods: {
+                initApp: function() {
+                    console.log(new Date());
+                },
+                messageEncode: function(word_string) {
+                    let enc = new TextEncoder();
+                    return enc.encode(word_string);
+                },
+                encodeMessage: function() {
+
+                    let user_defined_word = this.custom_word;
+
+                    if(user_defined_word.length >= 64) {
+                        this.cryptWord(user_defined_word, 64)
+                    } else if(user_defined_word.length == 0) {
+                        alert('There are no words to encrypt');
+                    } else {
+                        
+                        let encodedString = this.messageEncode(user_defined_word);
+                        
+                        iv = window.crypto.getRandomValues(new Uint8Array(16));
+                        return window.crypto.subtle.encrypt({
+                            name: 'AES-CBC',
+                            iv
+                        },
+                        key,
+                        encoded);
+                    
+                    }
+                }
+            },
+            onInit() {
+                this.initApp();
+            }
+        });
+    </script>
+</body>
+</html>

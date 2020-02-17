@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon: Tictac</title>
+    <script src="../../assets/vue.js"></script>
+</head>
+<body>
+    
+    <div id="tictac">
+
+        <!-- <pre v-html="section_row"></pre> -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="3">
+                        <label>Player 1: <input type="text" v-model="players[0].player_name" /></label>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        <label>Player 2: <input type="text" v-model="players[1].player_name" /></label>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        <button @click="initializePlay">Play</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="hidden" />
+                        <button></button>
+                    </td>
+                    <td>
+                        <input type="hidden" />
+                    </td>
+                    <td>
+                        <input type="hidden" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="hidden" />
+                    </td>
+                    <td>
+                        <input type="hidden" />
+                    </td>
+                    <td>
+                        <input type="hidden" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="hidden" v-model="section_row[8]['selected']" />
+                    </td>
+                    <td>
+                        <input type="hidden" />
+                    </td>
+                    <td>
+                        <input type="hidden" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <pre v-html="section_row"></pre>
+        <pre v-html="players"></pre>
+
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#tictac',
+            data: {
+                current_player: undefined,
+                players: [
+                    {
+                        player_name: '',
+                        is_current: false
+                    },
+                    {
+                        player_name: '',
+                        is_current: false
+                    }
+                ],
+                section_row: [
+                    { section: 'a', selected: undefined }, //0
+                    { section: 'a', selected: undefined }, //0
+                    { section: 'a', selected: undefined }, //0
+
+                    { section: 'a', selected: undefined }, //0
+                    { section: 'a', selected: undefined }, //0
+                    { section: 'a', selected: undefined }, //0
+
+                    { section: 'a', selected: undefined }, //0
+                    { section: 'a', selected: undefined }, //0
+                    { section: 'a', selected: undefined }, //0
+
+                ]
+            },
+            methods: {
+                initializePlay: function() {
+                    this.players[0].is_current = true;
+                },
+                inputPlayerNames: function() {
+
+                    let p1 = window.prompt("Please enter player 1", "<Player 1>");
+                    this.players[0].player = p1;
+
+                    let p2 = window.prompt("Please enter player 2", "<Player 2>");
+                    this.players[1].player = p2;
+
+                },
+                turnPlayer: function() {
+                    
+                }
+            },
+            onInit() {
+                this.inputPlayerNames();
+            }
+        });
+    </script>
+</body>
+</html>
