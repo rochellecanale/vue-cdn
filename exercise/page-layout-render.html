@@ -14,7 +14,12 @@
         <ex-main></ex-main>
         <ex-table></ex-table>
         <ex-footer></ex-footer>
+        <ex-greeter></ex-greeter>
     </div>
+
+    <script type="text/x-template" id="ex-greeter">
+        <p>Welcome {{ last_name }}, {{ first_name }} to my page!!</p>
+    </script>
 
     <!-- Component Lists -->
     <script src="../components/partials/ExHeader.js"></script>
@@ -22,6 +27,7 @@
     <script src="../components/partials/ExMain.js"></script>
     <script src="../components/partials/ExTable.js"></script>
     <script src="../components/partials/ExFooter.js"></script>
+    <script src="../components/partials/ExGreeter.js"></script>
     <script>
         var app = new Vue({
             el: '#main-app'
