@@ -13,14 +13,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="list-group">
-                        <todo-item v-for="plan in plans" :task-item="plan"></todo-item>
-                    </div>
+
+                    <task-item-app></task-item-app>
+
+                    <task-item-app></task-item-app>
+
+                    <task-item-app></task-item-app>
+
                 </div>
             </div>
         </div>
     </div>
 
+    <script type="text/x-template" id="task-item-app">
+        <div class="list-group">
+            <todo-item v-for="plan in plans" :task-item="plan"></todo-item>
+        </div>
+    </script>
 
     <script type="text/x-template" id="task-item-template">
         <a href="#" class="list-group-item">{{ taskItem }}</a>
@@ -31,10 +40,7 @@
 
     <script>
         new Vue({
-            el: '#app',
-            data: {
-                plans: ['Eat', 'Work', 'Sleep'] 
-            }
+            el: '#app'
         })
     </script>
 
