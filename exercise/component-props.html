@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2: Component Props Implementation (basic)</title>
+    <script src="../assets/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <greeter last-name="Canale" first-name="Rochelle" :age="28" date-of-birth="1991-01-29" :degree="{ university: 'University of the East', date_graduated: '2012' }"></greeter>
+    </div>
+
+    <script src="../components/partials/ExComponents.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        })
+    </script>
+</body>
+</html>
