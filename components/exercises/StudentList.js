@@ -1,5 +1,15 @@
-Vue.component('StudentContact', {
+let studentListComponent = {
+    props: {
+        studentList: Array
+    },
+    template: '#student-list-template'
+}
+
+let studentContactComponent = {
     template: '#student-contact-template',
+    components: {
+        studentList: studentListComponent
+    },
     data: function() {
         return {
             studentList: [
@@ -9,11 +19,4 @@ Vue.component('StudentContact', {
             ]
         }
     }
-});
-
-Vue.component('StudentList', {
-    props: {
-       studentList: Array
-    },
-    template: '#student-list-template'
-});
+}
